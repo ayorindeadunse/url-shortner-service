@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-const Url = require("../models/Url");
+const Url = require("./models/Url");
 
 //: app.get(/:decode)
 
-//@route GET /:decode
+//@route GET api/url/:decode
 //@description convert short url to original url and send response to client, or redirect to that url
 
 router.get('/:decode',async(req,res) => {

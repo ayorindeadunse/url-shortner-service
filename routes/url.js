@@ -7,7 +7,7 @@ const router = express.Router();
 
 //import URL database model (also consider creating an empty array object to store the url object in memory)
 
-const Url = require("../models/Url");
+const Url = require("./models/Url");
 
 //@route POST /api/url/encode  (Post route to encode/shorten urls)
 //@description Convert a long url to a short url
