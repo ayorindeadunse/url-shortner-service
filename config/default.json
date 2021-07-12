@@ -1,0 +1,3 @@
+{
+    "mongoURI":"mongodb+srv://urlshortner:urlshortner@123@cluster0.xztyl.mongodb.net/urlshortner?retryWrites=true&w=majority"
+}
