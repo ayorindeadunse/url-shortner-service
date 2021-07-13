@@ -9,7 +9,6 @@ connectDB();
 app.use(express.json());
 
 //routes
-//app.use('/api/redirect', require('./routes/redirect'));
 app.use('/',require('./routes/redirect'));
 app.use('/api/url',require('./routes/url'));
 app.use('/api/statistic',require('./routes/path'));
