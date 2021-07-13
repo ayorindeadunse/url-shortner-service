@@ -3,9 +3,9 @@ const router = express.Router();
 
 const Url = require("../models/Url");
 
-//: app.post(/:url_path)
+//: app.get(/:url_path)
 
-//@route POST api/statistic/:url_path
+//@route GET api/statistic/:url_path
 //@description retrieve pre-defined path (url) data from supplying just the short url generated earlier
 
 router.get('/:url_path',async(req,res) => {
