@@ -12,6 +12,7 @@ app.use(express.json());
 //app.use('/api/redirect', require('./routes/redirect'));
 app.use('/',require('./routes/redirect'));
 app.use('/api/url',require('./routes/url'));
+app.use('/api/statistic',require('./routes/path'));
 
 const PORT = process.env.PORT || 5000
 // listen for incoming requests

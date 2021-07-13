@@ -2,19 +2,20 @@ const express = require("express");
 const validUrl = require("valid-url");
 const shortid  = require("shortid");
 
+const config = require("config");
+
+const baseUrl = config.get("baseUrl");
+
 //call Router() function of express
 const router = express.Router();
 
-//import URL database model (also consider creating an empty array object to store the url object in memory)
+//import URL database model
 
 const Url = require("../models/Url");
 
 //@route POST /api/url/encode  (Post route to encode/shorten urls)
 //@description Convert a long url to a short url
 
-//base URL endpoint
-
-const baseUrl = 'http://localhost:5000';
 
 // post route
 router.post('/encode', async(req,res) => {
@@ -27,7 +28,7 @@ router.post('/encode', async(req,res) => {
         return res.status(401).json('Invalid base Url');
     }
     // if valid, create the url code
-    const urlCode = shortid.generate(); // consider just sending the response to the client isntead of saving in db
+    const url_path = shortid.generate();
 
     //check long url if valid using the validUrl.isUri method
     if(validUrl.isUri(longUrl))
@@ -49,13 +50,13 @@ router.post('/encode', async(req,res) => {
             else
             {
                 // join the generated short code to the base url defined earlier
-                const shortUrl = baseUrl + "/" + urlCode
+                const shortUrl = baseUrl + "/" + url_path
 
                 // save this record to the db (or append to the array if we choose not to use the db)
                 url = new Url({
                     longUrl,
                     shortUrl,
-                    urlCode,
+                    url_path,
                     date: new Date()
                 });
                 await url.save();

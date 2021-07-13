@@ -1,3 +1,4 @@
 {
-    "mongoURI":"mongodb+srv://urlshortner:jrsXbWylcoPM62rY@cluster0.xztyl.mongodb.net/urlshortner?retryWrites=true&w=majority"
+    "mongoURI":"mongodb+srv://urlshortner:jrsXbWylcoPM62rY@cluster0.xztyl.mongodb.net/urlshortner?retryWrites=true&w=majority",
+    "baseUrl":"http://localhost:5000"
 }
