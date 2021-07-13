@@ -45,24 +45,38 @@ router.post('/encode', async(req,res) => {
             // if the url exists, return the response message
             if(url)
             {
-                res.json(url)
+                res.json({
+                    shortUrl:url.shortUrl,
+                    url_path:url.url_path
+                });
             }
             else
             {
                 // join the generated short code to the base url defined earlier
                 const shortUrl = baseUrl + "/" + url_path
+                // log the hostname,domain and protocol as part of the data stat parameters
+                const usedUrl = new URL(longUrl);
+                const hostname = usedUrl.hostname;
+                const protocol = usedUrl.protocol;
+
 
                 // save this record to the db (or append to the array if we choose not to use the db)
                 url = new Url({
                     longUrl,
                     shortUrl,
                     url_path,
-                    date: new Date()
+                    date: new Date(),
+                    hostname,
+                    protocol         
                 });
                 await url.save();
 
                 // send the object as a response to the client,  or send just the short url as the reponse
-                res.json(url);
+              // res.json(url);
+              res.status(200).json({
+                  shortUrl:url.shortUrl,
+                  url_path:url.url_path
+              });
             }
         } catch (err) {
             console.log(err)

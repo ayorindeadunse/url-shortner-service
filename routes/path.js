@@ -19,7 +19,9 @@ router.get('/:url_path',async(req,res) => {
             return res.status(200).json({
                 longUrl:url.longUrl,
                 shortUrl:url.shortUrl,
-                DateCreated:url.date
+                DateCreated:url.date,
+                hostname:url.hostname,
+                protocol:url.protocol
             });
         }
         // else return an error to the client

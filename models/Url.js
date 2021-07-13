@@ -8,7 +8,9 @@ const urlSchema  = new mongoose.Schema({
     date:{
         type: String,
         default: Date.now
-    }
+    },
+   hostname:String,
+   protocol:String
 });
 
 // export model
