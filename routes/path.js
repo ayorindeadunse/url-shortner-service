@@ -8,7 +8,7 @@ const Url = require("../models/Url");
 //@route POST api/statistic/:url_path
 //@description retrieve pre-defined path (url) data from supplying just the short url generated earlier
 
-router.post('/:url_path',async(req,res) => {
+router.get('/:url_path',async(req,res) => {
     try {
         // run a query in the db to match the url passed to see if there's a longUrl and/or data match
         const url = await Url.findOne({
