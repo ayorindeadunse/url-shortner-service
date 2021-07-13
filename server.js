@@ -9,7 +9,8 @@ connectDB();
 app.use(express.json());
 
 //routes
-app.use('/api/redirect', require('./routes/redirect'));
+//app.use('/api/redirect', require('./routes/redirect'));
+app.use('/',require('./routes/redirect'));
 app.use('/api/url',require('./routes/url'));
 
 const PORT = process.env.PORT || 5000

@@ -16,7 +16,8 @@ router.get('/:decode',async(req,res) => {
         });
         if(url) {
             // if the code is valid we return the longUrl as a json object to the client (or redirect depending)
-            return res.status(200).json(url.longUrl);
+            return res.redirect(url.longUrl)
+          //  return res.status(200).json(url.longUrl);
         }
         // else return an error to the clien
         else {
